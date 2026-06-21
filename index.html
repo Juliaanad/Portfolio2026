@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Julia N. | Executive Assistant & Operations Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:       #2a6145;
+      --rose-light: #57967a;
+      --blush:      #e2eee6;
+      --cream:      #faf8f3;
+      --charcoal:   #172b1c;
+      --mid:        #3a5545;
+      --white:      #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(250, 248, 243, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(42, 97, 69, 0.1);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--rose);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--rose); }
+
+    /* WORK SAMPLES */
+    #work { background: var(--white); }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .work-card {
+      border-radius: 16px;
+      border: 1px solid rgba(42, 97, 69, 0.12);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      background: var(--cream);
+    }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(42, 97, 69, 0.12);
+    }
+
+    .work-card-preview {
+      background: linear-gradient(135deg, #f0f7f3 0%, #e8f4ee 100%);
+      padding: 2rem;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      position: relative;
+    }
+
+    .notion-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.8);
+      border-radius: 6px;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--mid);
+      width: fit-content;
+      margin-bottom: 0.4rem;
+    }
+
+    .work-card-preview h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+
+    .work-preview-lines { display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.4rem; }
+
+    .preview-line {
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(42, 97, 69, 0.15);
+    }
+
+    .preview-line.short { width: 60%; }
+    .preview-line.medium { width: 80%; }
+    .preview-line.long { width: 95%; }
+
+    .work-card-body { padding: 1.4rem; }
+
+    .work-card-body p { font-size: 0.85rem; color: var(--mid); margin-bottom: 1rem; line-height: 1.6; }
+
+    .work-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .work-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+    .work-tag {
+      font-size: 0.7rem;
+      background: var(--blush);
+      color: var(--rose);
+      border-radius: 999px;
+      padding: 0.2rem 0.65rem;
+    }
+
+    .btn-notion {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-notion:hover { background: var(--rose); }
+
+    @media (max-width: 768px) {
+      .work-grid { grid-template-columns: 1fr; }
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 2.5rem 4rem;
+      background: linear-gradient(135deg, #faf8f3 0%, #edf4ee 50%, #e8f5ec 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-blob-1 { width: 900px; height: 900px; background: radial-gradient(circle, rgba(42,97,69,0.28) 0%, transparent 65%); top: -350px; left: -350px; filter: blur(15px); animation: blob1 10s ease-in-out infinite; }
+    .hero-blob-2 { width: 750px; height: 750px; background: radial-gradient(circle, rgba(87,150,122,0.25) 0%, transparent 65%); bottom: -250px; right: -250px; filter: blur(15px); animation: blob2 13s ease-in-out infinite; }
+    .hero-blob-3 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(42,97,69,0.2) 0%, transparent 65%); top: 25%; right: 5%; filter: blur(20px); animation: blob3 15s ease-in-out infinite; }
+    .hero-blob-4 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(87,150,122,0.22) 0%, transparent 65%); bottom: 5%; left: 15%; filter: blur(18px); animation: blob1 8s ease-in-out infinite reverse; }
+
+    @keyframes blob1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%  { transform: translate(30px, -40px) scale(1.06); }
+      66%  { transform: translate(-25px, 25px) scale(0.94); }
+    }
+    @keyframes blob2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(-35px, -45px) scale(1.09); }
+    }
+    @keyframes blob3 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33%  { transform: translate(20px, -25px) rotate(60deg); }
+      66%  { transform: translate(-18px, 18px) rotate(-40deg); }
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-text .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--white);
+      border: 1px solid var(--rose-light);
+      border-radius: 999px;
+      padding: 0.35rem 1rem;
+      font-size: 0.75rem;
+      color: var(--mid);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-roles {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-roles span { color: var(--rose-light); margin: 0 0.5rem; }
+
+    .hero-text h1 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      color: var(--charcoal);
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-text h1 em {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      color: var(--rose);
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      color: var(--mid);
+      font-style: italic;
+      margin: 1.2rem 0 2rem;
+      max-width: 380px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--rose);
+      color: var(--white);
+      padding: 0.8rem 1.8rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-primary:hover { background: #1c4a32; transform: translateY(-1px); }
+
+    .btn-outline {
+      border: 1.5px solid var(--rose);
+      color: var(--rose);
+      padding: 0.8rem 1.8rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover { background: var(--rose); color: var(--white); transform: translateY(-1px); }
+
+    .hero-photo { display: flex; justify-content: center; }
+
+    .photo-frame {
+      position: relative;
+      width: 340px;
+      height: 420px;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background: linear-gradient(160deg, #f0d5d5, #e8c0c0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--rose);
+      font-size: 0.85rem;
+      gap: 0.6rem;
+    }
+
+    .photo-placeholder svg { width: 52px; height: 52px; opacity: 0.45; }
+
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border: 2px solid var(--rose-light);
+      border-radius: 16px;
+      z-index: -1;
+    }
+
+    /* SECTION BASE */
+    section { padding: 6rem 2.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--rose); }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--mid);
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    /* ABOUT */
+    #about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      background: var(--blush);
+      border-radius: 12px;
+      padding: 1.4rem;
+    }
+
+    .stat-card .number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--rose);
+    }
+
+    .stat-card p { font-size: 0.78rem; color: var(--mid); margin-top: 0.2rem; }
+
+    .about-text p { font-size: 0.95rem; color: var(--mid); margin-bottom: 1rem; }
+
+    /* SERVICES */
+    #services { background: var(--charcoal); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid rgba(42, 97, 69, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(42, 97, 69, 0.1);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--blush);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--charcoal);
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.7; }
+
+    /* SKILLS */
+    #skills { background: var(--blush); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .skill-group h3 {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 1rem;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .skill-tag {
+      background: var(--white);
+      border: 1px solid rgba(42, 97, 69, 0.2);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.8rem;
+      color: var(--mid);
+    }
+
+    /* CONTACT */
+    #contact { background: var(--charcoal); }
+    #contact .section-label { color: var(--rose-light); }
+    #contact .section-title { color: var(--white); }
+    #contact .section-title em { color: var(--rose-light); }
+    #contact .section-subtitle { color: rgba(255,255,255,0.55); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-items { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+
+    .contact-item-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(42, 97, 69, 0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-meta { font-size: 0.72rem; color: rgba(255,255,255,0.38); margin-bottom: 0.15rem; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 10px;
+      padding: 0.9rem 1.2rem;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--rose-light); }
+
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+
+    /* FOOTER */
+    footer {
+      background: #1e1514;
+      padding: 1.8rem 2.5rem;
+      text-align: center;
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.28);
+    }
+
+    footer a { color: var(--rose-light); text-decoration: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      #hero { padding: 6rem 1.5rem 3rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .hero-photo { order: -1; }
+      .photo-frame { width: 220px; height: 280px; }
+      .hero-tagline { margin-left: auto; margin-right: auto; }
+      .hero-cta { justify-content: center; }
+      section { padding: 4rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+    }
+
+    /* PORTFOLIO IMAGE GRID */
+    .portfolio-image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .portfolio-img-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(42, 97, 69, 0.12);
+      background: var(--cream);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .portfolio-img-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(42, 97, 69, 0.12);
+    }
+
+    .portfolio-img-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-img-label {
+      padding: 0.9rem 1rem;
+    }
+
+    .portfolio-img-title {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-image-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .portfolio-image-grid { grid-template-columns: 1fr; }
+    }
+
+    /* CANVA CAROUSEL */
+    .canva-carousel-wrap { margin-top: 3rem; }
+    .canva-carousel {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+    }
+    .canva-carousel::-webkit-scrollbar { display: none; }
+    .canva-slide {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(42, 97, 69, 0.12);
+      background: var(--cream);
+    }
+    .canva-slide img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .canva-slide-wide {
+      flex: 0 0 500px;
+      scroll-snap-align: start;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(42, 97, 69, 0.12);
+      background: var(--cream);
+    }
+
+    .canva-slide-wide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .canva-slide-label {
+      padding: 0.65rem 0.9rem;
+      font-size: 0.75rem;
+      color: var(--mid);
+      font-weight: 500;
+    }
+
+    /* TESTIMONIALS */
+    #testimonials { background: var(--cream); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.2rem;
+      border: 1px solid rgba(42, 97, 69, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(42, 97, 69, 0.1);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 0.2rem;
+      color: #f5a623;
+      font-size: 1rem;
+    }
+
+    .testimonial-quote {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-top: 1px solid rgba(42, 97, 69, 0.1);
+      padding-top: 1.2rem;
+    }
+
+    .testimonial-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      flex-shrink: 0;
+      border: 2px solid var(--blush);
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+
+    .testimonial-role {
+      font-size: 0.75rem;
+      color: var(--rose);
+      margin-top: 0.15rem;
+    }
+
+    @media (max-width: 768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    .section-dark { background: var(--charcoal); }
+    .section-dark .section-label { color: var(--rose-light); }
+    .section-dark .section-title { color: #ffffff; }
+    .section-dark .section-title em { color: var(--rose-light); }
+    .section-dark .section-subtitle { color: rgba(255,255,255,0.65); }
+    .section-dark .service-card { background: #ffffff; border-color: rgba(255,255,255,0.2); }
+    .section-dark .service-card h3 { color: var(--charcoal); }
+    .section-dark .service-card li { color: var(--mid); }
+    .section-dark .service-icon { background: var(--blush); color: var(--rose); }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">Julia N.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">My Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-blob hero-blob-3"></div>
+    <div class="hero-blob hero-blob-4"></div>
+    <div class="hero-inner" style="position:relative;z-index:1;">
+      <div class="hero-text">
+        <div class="badge">
+          📍 Manila, Philippines &nbsp;·&nbsp; <strong style="color:var(--rose)">Open to Remote</strong>
+        </div>
+        <p class="hero-roles">
+          Virtual Assistant <span>·</span> Operations Specialist <span>·</span> Executive Assistant
+        </p>
+        <h1>
+          Hi, I'm
+          <em>Julia N.</em>
+        </h1>
+        <p class="hero-tagline">
+          Empowering businesses through operational excellence, seamless communication, and exceptional organizational support.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary">Work With Me</a>
+          <a href="#services" class="btn-outline">View Services</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-frame">
+          <img src="Julia%20Nadal%20Photo.JPEG" alt="Julia N." />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label">About Me</p>
+      <h2 class="section-title">Organized. Reliable. <em>Detail-driven.</em></h2>
+      <div class="about-grid" style="margin-top:2.5rem;">
+        <div class="about-text">
+          <p style="font-size:0.95rem;color:var(--charcoal);font-weight:500;margin-bottom:1.2rem;">I'm Julia, an Executive Assistant and Business Operations specialist based in Manila, Philippines.</p>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;">
+            <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.9rem;color:var(--mid);">
+              <span style="color:var(--rose);font-size:1rem;margin-top:0.1rem;">✓</span>
+              Work with executives and business owners who need someone they can fully rely on to keep things running
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.9rem;color:var(--mid);">
+              <span style="color:var(--rose);font-size:1rem;margin-top:0.1rem;">✓</span>
+              Specialise in executive support and operational efficiency
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.9rem;color:var(--mid);">
+              <span style="color:var(--rose);font-size:1rem;margin-top:0.1rem;">✓</span>
+              Manage high-level calendars, communications, and day-to-day operations
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.9rem;color:var(--mid);">
+              <span style="color:var(--rose);font-size:1rem;margin-top:0.1rem;">✓</span>
+              Build systems and workflows that scale with your business
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.9rem;color:var(--mid);">
+              <span style="color:var(--rose);font-size:1rem;margin-top:0.1rem;">✓</span>
+              Take full ownership of the backend so you can focus on what matters most
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.9rem;color:var(--mid);">
+              <span style="color:var(--rose);font-size:1rem;margin-top:0.1rem;">✓</span>
+              Currently open to remote opportunities worldwide
+            </li>
+          </ul>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="number">3+</div>
+            <p>Years of VA & EA experience</p>
+          </div>
+          <div class="stat-card">
+            <div class="number">100%</div>
+            <p>Remote-ready & time zone flexible</p>
+          </div>
+          <div class="stat-card">
+            <div class="number">Fast</div>
+            <p>Turnaround, high attention to detail</p>
+          </div>
+          <div class="stat-card">
+            <div class="number">Multi</div>
+            <p>Industry experience across sectors</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:3rem;">
+        <p class="section-label" style="margin-bottom:1.2rem;">Client Testimonials</p>
+        <div class="testimonials-grid">
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"From day one she <strong>owned our calendar, inbox, and vendor communication</strong> without missing a beat. She's proactive, discreet, and always three steps ahead."</p>
+            <div class="testimonial-author">
+              <img src="Melody%20Kelly.jpg" alt="Maria K." class="testimonial-avatar" />
+              <div>
+                <div class="testimonial-name">Maria K.</div>
+                <div class="testimonial-role">Co-Founder, Pest-Ex Philippines · CEO, Eve's Restaurant</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"Julia is a <strong>game-changer</strong>. Her turnaround is unmatched and her <strong>attention to detail</strong> makes my job so much easier. Highly recommend her to any business owner."</p>
+            <div class="testimonial-author">
+              <img src="Work%20testimonial%20-%20Danny%20Kelly.PNG" alt="Danny K." class="testimonial-avatar" />
+              <div>
+                <div class="testimonial-name">Danny K.</div>
+                <div class="testimonial-role">Founder & Ex-CEO, Pest-Ex Australia · CEO, Pest-Ex Philippines</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section-dark">
+    <div class="section-inner">
+      <p class="section-label">What I Offer</p>
+      <h2 class="section-title">Services built for <em>busy executives.</em></h2>
+      <p class="section-subtitle">Comprehensive support so you can focus on what only you can do.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">📅</div>
+          <h3>Calendar & Schedule Management</h3>
+          <ul style="font-size:0.85rem;color:var(--mid);line-height:1.8;padding-left:1.1rem;">
+            <li>Schedule and confirm meetings</li>
+            <li>Resolve conflicts and protect focus time</li>
+            <li>Set reminders and manage recurring events</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📬</div>
+          <h3>Inbox & Email Management</h3>
+          <ul style="font-size:0.85rem;color:var(--mid);line-height:1.8;padding-left:1.1rem;">
+            <li>Filter, organize, and prioritize emails</li>
+            <li>Draft and respond on your behalf</li>
+            <li>Maintain inbox zero consistently</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✈️</div>
+          <h3>Travel Coordination</h3>
+          <ul style="font-size:0.85rem;color:var(--mid);line-height:1.8;padding-left:1.1rem;">
+            <li>Book flights, hotels, and transfers</li>
+            <li>Build detailed travel itineraries</li>
+            <li>Handle changes, delays, and logistics</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>Operations & Admin Support</h3>
+          <ul style="font-size:0.85rem;color:var(--mid);line-height:1.8;padding-left:1.1rem;">
+            <li>Build and maintain SOPs</li>
+            <li>Data entry and file organization</li>
+            <li>Process documentation and reporting</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Project Coordination</h3>
+          <ul style="font-size:0.85rem;color:var(--mid);line-height:1.8;padding-left:1.1rem;">
+            <li>Track tasks and deadlines</li>
+            <li>Follow up on deliverables</li>
+            <li>Manage projects in Notion, Asana, ClickUp</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💬</div>
+          <h3>Communication & Liaison</h3>
+          <ul style="font-size:0.85rem;color:var(--mid);line-height:1.8;padding-left:1.1rem;">
+            <li>Act as point of contact for your team</li>
+            <li>Coordinate with clients and vendors</li>
+            <li>Represent your voice professionally</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner">
+      <p class="section-label">Tools & Skills</p>
+      <h2 class="section-title">Equipped to handle <em>any workflow.</em></h2>
+      <p class="section-subtitle">Proficient across a wide range of tools used by modern remote teams.</p>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Communication</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Gmail</span>
+            <span class="skill-tag">Slack</span>
+            <span class="skill-tag">Zoom</span>
+            <span class="skill-tag">Microsoft Teams</span>
+            <span class="skill-tag">Google Meet</span>
+            <span class="skill-tag">WhatsApp</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Project Management</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Notion</span>
+            <span class="skill-tag">Asana</span>
+            <span class="skill-tag">Trello</span>
+            <span class="skill-tag">ClickUp</span>
+            <span class="skill-tag">Monday.com</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Google Workspace</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Google Calendar</span>
+            <span class="skill-tag">Google Docs</span>
+            <span class="skill-tag">Google Sheets</span>
+            <span class="skill-tag">Google Drive</span>
+            <span class="skill-tag">Google Forms</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Other Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Microsoft Office</span>
+            <span class="skill-tag">Canva</span>
+            <span class="skill-tag">Dropbox</span>
+            <span class="skill-tag">AI Tools</span>
+            <span class="skill-tag">Calendly</span>
+            <span class="skill-tag">Loom</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK SAMPLES -->
+  <section id="work">
+    <div class="section-inner">
+      <p class="section-label">Portfolio</p>
+      <h2 class="section-title">Work samples from real <em>client engagements.</em></h2>
+      <p class="section-subtitle">A selection of design, operations, and travel coordination work — all original, all built for real businesses.</p>
+
+      <!-- Canva Design Samples -->
+      <div class="canva-carousel-wrap">
+        <p class="section-label" style="margin-bottom:0.4rem;">Canva Design Samples</p>
+        <p style="font-size:0.85rem;color:var(--mid);margin-bottom:1rem;">Swipe to browse graphic design and marketing materials created for clients.</p>
+        <div class="canva-carousel">
+          <div class="canva-slide">
+            <img src="JOB%20POSTING.png" alt="Pest-Ex: Job Posting" />
+            <div class="canva-slide-label">Pest-Ex: Job Posting</div>
+          </div>
+          <div class="canva-slide">
+            <img src="Tinidor%20Foods%20.PNG" alt="Tinidor Foods: Kitchen Menu" />
+            <div class="canva-slide-label">Tinidor Foods: Kitchen Menu Design</div>
+          </div>
+          <div class="canva-slide">
+            <img src="Tinidor%20Foods%202.PNG" alt="Tinidor Foods: Brand Identity" />
+            <div class="canva-slide-label">Tinidor Foods: Brand Identity</div>
+          </div>
+          <div class="canva-slide">
+            <img src="Tinidor%20Foods%201.PNG" alt="Tinidor Foods: Menu Marketing" />
+            <div class="canva-slide-label">Tinidor Foods: Menu Marketing</div>
+          </div>
+          <div class="canva-slide">
+            <img src="EVE'S%20GARDEN%20.JPG" alt="Eve's Garden: Independence Day" />
+            <div class="canva-slide-label">Eve's Garden: Independence Day</div>
+          </div>
+          <div class="canva-slide">
+            <img src="EVE'S%20GARDEN%201.JPG" alt="Eve's Garden: New Menu" />
+            <div class="canva-slide-label">Eve's Garden: New Menu Launch</div>
+          </div>
+          <div class="canva-slide">
+            <img src="EVE'S%20GARDEN%202.JPG" alt="Eve's Garden: Mother's Day" />
+            <div class="canva-slide-label">Eve's Garden: Mother's Day Dinner</div>
+          </div>
+          <div class="canva-slide">
+            <img src="EVE'S%20GARDEN%2013.JPG" alt="Eve's Garden: Venue & Catering" />
+            <div class="canva-slide-label">Eve's Garden: Venue & Catering Packages</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Presentations -->
+      <div class="canva-carousel-wrap">
+        <p class="section-label" style="margin-bottom:0.4rem;">Business Presentations</p>
+        <p style="font-size:0.85rem;color:var(--mid);margin-bottom:1rem;">Client-facing presentation built and designed for real business use. Use the arrows to browse all 7 slides.</p>
+        <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(42,97,69,0.15);background:var(--cream);box-shadow:0 4px 24px rgba(42,97,69,0.07);">
+          <div style="padding:0.9rem 1.4rem;background:linear-gradient(135deg,#f0f7f3 0%,#e8f4ee 100%);border-bottom:1px solid rgba(42,97,69,0.1);display:flex;align-items:center;gap:0.8rem;">
+            <div class="notion-badge">📊 Google Slides · 7 slides</div>
+            <span style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--charcoal);">Pest-Ex Company Profile</span>
+          </div>
+          <iframe
+            src="https://docs.google.com/presentation/d/1uDC6klDvcss4iJkwnl6bvsNsa9XCeQek_11k8rLg74s/embed?start=false&loop=false&delayms=3000"
+            frameborder="0"
+            style="width:100%;height:480px;display:block;"
+            allowfullscreen="true"
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Project Management -->
+      <div class="canva-carousel-wrap">
+        <p class="section-label" style="margin-bottom:0.4rem;">Project Management</p>
+        <p style="font-size:0.85rem;color:var(--mid);margin-bottom:1rem;">End-to-end operational checklist built to manage a full Etsy shop launch from setup to order workflow.</p>
+        <div class="canva-carousel">
+          <div class="canva-slide-wide" style="background:linear-gradient(135deg,#f0f7f3 0%,#e8f4ee 100%);padding:1.8rem;">
+            <div class="notion-badge" style="margin-bottom:0.8rem;">📊 Google Sheets · 5 phases</div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--charcoal);font-weight:600;margin-bottom:1rem;">Etsy Shop Master Setup Checklist</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-bottom:1.2rem;">
+              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">💳 Phase 1</div>
+                Payment setup via Payoneer and Wise
+              </div>
+              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">🛍️ Phase 2</div>
+                Etsy account creation and billing
+              </div>
+              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">🎨 Phase 3</div>
+                Shop branding, logo and banner
+              </div>
+              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">📋 Phase 4</div>
+                Policies, refunds and FAQs
+              </div>
+              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">📝 Phase 5</div>
+                Google Form order intake system
+              </div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1qS1PBpkhBANTAjybqbtqpMWRmhmdSHG7KeAKrtpxi8c/edit?usp=sharing" target="_blank" style="display:inline-block;background:var(--charcoal);color:#fff;padding:0.5rem 1.2rem;border-radius:8px;font-size:0.78rem;font-weight:500;text-decoration:none;">View Full Sheet →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Operational Work Carousel -->
+      <div class="canva-carousel-wrap">
+        <p class="section-label" style="margin-bottom:0.4rem;">Operational Work</p>
+        <p style="font-size:0.85rem;color:var(--mid);margin-bottom:1rem;">Operations, systems, and documentation samples from client engagements.</p>
+        <div class="canva-carousel">
+          <div class="canva-slide-wide" style="background:linear-gradient(135deg,#f0f7f3 0%,#e8f4ee 100%);padding:1.8rem;">
+            <div class="notion-badge" style="margin-bottom:0.8rem;">
+              📄 PDF Document
+            </div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--charcoal);font-weight:600;margin-bottom:1rem;">Pest-Ex Company Profile</div>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.6rem;margin-bottom:1.2rem;">
+              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">🏢 Who We Are</div>
+                Company background and what Pest-Ex stands for
+              </div>
+              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">✅ Why Choose Us</div>
+                Differentiators and client value proposition
+              </div>
+              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">🎯 Mission &amp; Vision</div>
+                Core purpose and long-term direction
+              </div>
+              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">🐜 Termite Service Process</div>
+                Step-by-step treatment and service workflow
+              </div>
+            </div>
+            <a href="Pest%20ex%20company%20profile.pdf" target="_blank" style="display:inline-block;background:var(--charcoal);color:#fff;padding:0.5rem 1.2rem;border-radius:8px;font-size:0.78rem;font-weight:500;text-decoration:none;">View PDF →</a>
+          </div>
+          <div class="canva-slide-wide">
+            <img src="SOP%20previous%20works.JPG1.JPG" alt="Eve's Catering: Menu Design Suite" />
+            <div class="canva-slide-label">Eve's Catering: Menu Design Suite</div>
+          </div>
+          <div class="canva-slide-wide">
+            <img src="SOP%20previous%20works.JPG2.JPG" alt="Eve's Catering: Operations & Costing" />
+            <div class="canva-slide-label">Eve's Catering: Operations &amp; Costing</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample Itinerary -->
+      <div style="margin-top:3rem;margin-bottom:1rem;">
+        <p class="section-label" style="margin-bottom:0.4rem;">Sample Itinerary</p>
+        <p style="font-size:0.85rem;color:var(--mid);">A real executive travel itinerary built end-to-end. Click to view the full document in Notion.</p>
+      </div>
+      <div class="work-card" style="margin-top:0;">
+        <div class="work-card-preview" style="background:linear-gradient(135deg,#edf4ee 0%,#f0f7f3 100%);min-height:220px;">
+          <div class="notion-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg>
+            Notion Document
+          </div>
+          <h4 style="font-size:1.15rem;">Executive Travel: Melbourne to Manila &nbsp;|&nbsp; Dec 17–28, 2026</h4>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-top:0.8rem;">
+            <div style="background:rgba(255,255,255,0.7);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+              <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">✈️ Flights</div>
+              PR 218 · 09:20 AEDT<br/>Business Class · Seat 3A
+            </div>
+            <div style="background:rgba(255,255,255,0.7);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+              <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">🏨 Hotel</div>
+              Discovery Primea, Makati<br/>11 nights · Deluxe King Suite
+            </div>
+            <div style="background:rgba(255,255,255,0.7);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+              <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">💰 Budget</div>
+              AUD $19,850 total<br/>Full expense breakdown
+            </div>
+          </div>
+        </div>
+        <div class="work-card-body">
+          <p>A full 12-day executive travel itinerary covering flights, hotel, hour-by-hour schedule, business meetings, curated dining, day trips, Christmas Eve arrangements, and a complete expense tracker. Built end-to-end by Julia N.</p>
+          <div class="work-card-footer">
+            <div class="work-tags">
+              <span class="work-tag">Travel Coordination</span>
+              <span class="work-tag">Itinerary</span>
+              <span class="work-tag">Expense Management</span>
+              <span class="work-tag">Notion</span>
+            </div>
+            <a href="https://app.notion.com/p/3858cfe1721181c2a195d3097ff2744d" target="_blank" class="btn-notion">
+              View in Notion →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio / Certificates Carousel -->
+      <div class="canva-carousel-wrap" style="background:var(--charcoal);margin-left:-2.5rem;margin-right:-2.5rem;padding:2.5rem 2.5rem 2rem;">
+        <p class="section-label" style="margin-bottom:0.4rem;color:var(--rose-light);">Portfolio</p>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.65);margin-bottom:1rem;">Credentials and certifications that back my expertise.</p>
+        <div class="canva-carousel">
+          <div class="canva-slide-wide">
+            <img src="SOP%20previous%20works.JPG" alt="Udemy: Executive Business Assistant Certificate" />
+            <div class="canva-slide-label">Udemy: Executive Business Assistant Certificate</div>
+          </div>
+          <div class="canva-slide-wide">
+            <img src="Hubspot%20Certificate.png" alt="HubSpot: Sales Hub Software Certified" />
+            <div class="canva-slide-label">HubSpot: Sales Hub Software Certified</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright Notice -->
+      <div style="margin-top:2.5rem;padding:1.4rem 1.8rem;background:#f0f5f1;border:1px solid rgba(42,97,69,0.2);border-radius:12px;display:flex;align-items:flex-start;gap:0.9rem;">
+        <span style="font-size:1.2rem;flex-shrink:0;">🔒</span>
+        <p style="font-size:0.78rem;color:var(--mid);line-height:1.7;margin:0;">
+          <strong style="color:var(--charcoal);">All work displayed in this portfolio is original content created by Julia N.</strong>
+          Reproduction, redistribution, or use of any materials without written permission is strictly prohibited.
+          All client work and materials are published with the express consent of the respective executives and business owners.
+        </p>
+      </div>
+
+
+      <div style="margin-top:4rem;border-top:1px solid rgba(42,97,69,0.12);padding-top:3.5rem;">
+        <p class="section-label" style="margin-bottom:0.6rem;">Get Started With Me</p>
+        <h2 class="section-title">Ready to work together? <em>Here's how.</em></h2>
+        <p class="section-subtitle">Choose the onboarding form that fits your needs and fill it out — I'll take it from there. Or send me a job description and I'll build a custom onboarding tailored specifically to you and your business.</p>
+      </div>
+      <div class="work-grid">
+
+        <!-- Card 1: Business Operations -->
+        <div class="work-card">
+          <div class="work-card-preview" style="background:linear-gradient(135deg,#f0f7f3 0%,#e8f4ee 100%);min-height:220px;">
+            <div class="notion-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg>
+              Notion Document
+            </div>
+            <h4>Client Onboarding (Business Operations)</h4>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-top:0.8rem;">
+              <div style="background:rgba(255,255,255,0.7);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">🔧 Tools & Stack</div>
+                Software, platforms, and systems you use daily
+              </div>
+              <div style="background:rgba(255,255,255,0.7);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">📬 Comms Style</div>
+                How and when you prefer to be reached
+              </div>
+              <div style="background:rgba(255,255,255,0.7);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">🎯 Priorities</div>
+                Your goals and what matters most right now
+              </div>
+            </div>
+          </div>
+          <div class="work-card-body">
+            <p>For <strong>executives and business owners</strong>. Fill this out when you're ready to work with me. It covers your <strong>tools, workflows, communication preferences, and priorities</strong> so I can get started immediately.</p>
+            <div class="work-card-footer">
+              <div class="work-tags">
+                <span class="work-tag">Operations</span>
+                <span class="work-tag">Onboarding</span>
+                <span class="work-tag">Notion</span>
+              </div>
+              <a href="https://app.notion.com/p/3858cfe17211812b901cd898c3b031dc" target="_blank" class="btn-notion">
+                Get Started →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Lifestyle Manager -->
+        <div class="work-card">
+          <div class="work-card-preview" style="background:linear-gradient(135deg,#edf4ee 0%,#f0f7f3 100%);min-height:220px;">
+            <div class="notion-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg>
+              Notion Document
+            </div>
+            <h4>Client Onboarding (Lifestyle Management)</h4>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-top:0.8rem;">
+              <div style="background:rgba(255,255,255,0.7);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">✈️ Travel</div>
+                Preferences, airlines, hotels, and trip style
+              </div>
+              <div style="background:rgba(255,255,255,0.7);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">🏠 Household</div>
+                Routines, vendors, and recurring needs
+              </div>
+              <div style="background:rgba(255,255,255,0.7);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
+                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">📅 Schedule</div>
+                Personal calendar and lifestyle priorities
+              </div>
+            </div>
+          </div>
+          <div class="work-card-body">
+            <p>For clients needing <strong>personal and lifestyle support</strong>. This form captures your <strong>travel preferences, household routines, and personal scheduling needs</strong> so I can manage your life seamlessly behind the scenes.</p>
+            <div class="work-card-footer">
+              <div class="work-tags">
+                <span class="work-tag">Lifestyle</span>
+                <span class="work-tag">Onboarding</span>
+                <span class="work-tag">Notion</span>
+              </div>
+              <a href="https://app.notion.com/p/3858cfe1721181b2bf28f96591d4ce1f" target="_blank" class="btn-notion">
+                Get Started →
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p style="text-align:center;font-size:0.78rem;font-weight:700;color:var(--mid);margin-top:1.2rem;letter-spacing:0.02em;"><strong>All work displayed in this portfolio is original content created by Julia N.</strong></p>
+
+
+      <!-- Inquiry prompt -->
+      <div style="margin-top:1.5rem;padding:2rem;background:var(--blush);border-radius:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--charcoal);margin-bottom:0.3rem;">Want a custom onboarding system like this?</p>
+          <p style="font-size:0.85rem;color:var(--mid);">I can build one tailored to your business from day one.</p>
+        </div>
+        <a href="#contact" class="btn-primary">Let's Talk</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-title">Let's work <em>together.</em></h2>
+      <p class="section-subtitle">Available for remote opportunities worldwide. Let's talk about how I can support your business.</p>
+      <div class="contact-grid">
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div>
+              <div class="contact-meta">Email</div>
+              juliaangnadal@gmail.com
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <div class="contact-meta">Location</div>
+              Manila, Philippines · Open to Remote
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div>
+              <div class="contact-meta">Availability</div>
+              Full-time · Part-time · Project-based
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <input type="text" placeholder="Your name" required />
+          <input type="email" placeholder="Your email" required />
+          <input type="text" placeholder="Subject" />
+          <textarea placeholder="Tell me about your needs..."></textarea>
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Julia N. · <a href="mailto:juliaangnadal@gmail.com">juliaangnadal@gmail.com</a> · Manila, Philippines</p>
+    <p style="margin-top:0.5rem;font-size:0.68rem;color:rgba(255,255,255,0.18);">All portfolio materials are original works by Julia N. Published with client consent. Unauthorized use is prohibited.</p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'Message Sent!';
+      btn.style.background = '#4caf87';
+      setTimeout(() => {
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
+
+
+  <canvas id="particles" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+  <script>
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let W = canvas.width = window.innerWidth;
+    let H = canvas.height = window.innerHeight;
+    window.addEventListener('resize', () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; });
+
+    const dots = Array.from({ length: 28 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 2.5 + 0.8,
+      sx: (Math.random() - 0.5) * 0.3,
+      sy: -(Math.random() * 0.4 + 0.15),
+      o: Math.random() * 0.18 + 0.06
+    }));
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      dots.forEach(d => {
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(42,97,69,${d.o})`;
+        ctx.fill();
+        d.x += d.sx;
+        d.y += d.sy;
+        if (d.y < -10) { d.y = H + 10; d.x = Math.random() * W; }
+        if (d.x < -10) d.x = W + 10;
+        if (d.x > W + 10) d.x = -10;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+
+</body>
+</html>
