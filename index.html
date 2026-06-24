@@ -781,6 +781,35 @@
     .section-dark .service-card li { color: var(--mid); }
     .section-dark .service-icon { background: var(--blush); color: var(--rose); }
 
+    /* ETSY BAR */
+    .etsy-bar-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .etsy-bar-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    .etsy-bar-phases {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      flex: 1;
+      justify-content: center;
+    }
+
+    @media (max-width: 640px) {
+      .etsy-bar-row { flex-direction: column; align-items: flex-start; }
+      .etsy-bar-meta { flex-shrink: 1; }
+      .etsy-bar-phases { flex: none; width: 100%; justify-content: flex-start; }
+    }
+
   </style>
 </head>
 <body>
@@ -1156,29 +1185,29 @@
         <p class="section-label" style="margin-bottom:0.4rem;">Project Management</p>
         <p style="font-size:0.85rem;color:var(--mid);margin-bottom:1rem;">End-to-end operational checklist built to manage a full Etsy shop launch from setup to order workflow.</p>
         <div style="border-radius:14px;border:1px solid rgba(42,97,69,0.15);background:linear-gradient(135deg,#f0f7f3 0%,#e8f4ee 100%);box-shadow:0 4px 24px rgba(42,97,69,0.07);padding:1.1rem 1.6rem;">
-          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-            <div style="display:flex;align-items:center;gap:0.8rem;flex-shrink:0;">
+          <div class="etsy-bar-row">
+            <div class="etsy-bar-meta">
               <div class="notion-badge" style="margin:0;">📊 Google Sheets · 5 phases</div>
               <span style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--charcoal);">Etsy Shop Master Setup Checklist</span>
             </div>
-            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;flex:1;justify-content:center;">
-              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);white-space:nowrap;">
+            <div class="etsy-bar-phases">
+              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);">
                 <span style="font-weight:600;color:var(--charcoal);">💳 Phase 1</span>&nbsp; Payoneer & Wise
               </div>
-              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);white-space:nowrap;">
+              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);">
                 <span style="font-weight:600;color:var(--charcoal);">🛍️ Phase 2</span>&nbsp; Etsy account setup
               </div>
-              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);white-space:nowrap;">
+              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);">
                 <span style="font-weight:600;color:var(--charcoal);">🎨 Phase 3</span>&nbsp; Shop branding
               </div>
-              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);white-space:nowrap;">
+              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);">
                 <span style="font-weight:600;color:var(--charcoal);">📋 Phase 4</span>&nbsp; Policies & FAQs
               </div>
-              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);white-space:nowrap;">
+              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);">
                 <span style="font-weight:600;color:var(--charcoal);">📝 Phase 5</span>&nbsp; Order intake form
               </div>
             </div>
-            <a href="https://docs.google.com/spreadsheets/d/1qS1PBpkhBANTAjybqbtqpMWRmhmdSHG7KeAKrtpxi8c/edit?usp=sharing" target="_blank" style="display:inline-block;background:var(--charcoal);color:#fff;padding:0.5rem 1.2rem;border-radius:8px;font-size:0.78rem;font-weight:500;text-decoration:none;flex-shrink:0;">View Full Sheet →</a>
+            <a href="https://docs.google.com/spreadsheets/d/1qS1PBpkhBANTAjybqbtqpMWRmhmdSHG7KeAKrtpxi8c/edit?usp=sharing" target="_blank" style="display:inline-block;background:var(--charcoal);color:#fff;padding:0.5rem 1.2rem;border-radius:8px;font-size:0.78rem;font-weight:500;text-decoration:none;flex-shrink:0;align-self:flex-start;">View Full Sheet →</a>
           </div>
         </div>
       </div>
