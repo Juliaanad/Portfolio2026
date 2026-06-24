@@ -36,16 +36,16 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.2rem 2.5rem;
-      background: rgba(250, 248, 243, 0.92);
+      background: rgba(42, 97, 69, 0.96);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(42, 97, 69, 0.1);
+      border-bottom: 1px solid rgba(87, 150, 122, 0.2);
     }
 
     .nav-logo {
       font-family: 'Playfair Display', serif;
       font-style: italic;
       font-size: 1.3rem;
-      color: var(--rose);
+      color: var(--white);
       text-decoration: none;
     }
 
@@ -59,12 +59,12 @@
       font-size: 0.78rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--mid);
+      color: rgba(255, 255, 255, 0.75);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--rose); }
+    .nav-links a:hover { color: var(--rose-light); }
 
     /* WORK SAMPLES */
     #work { background: var(--white); }
@@ -414,9 +414,13 @@
     #services { background: var(--charcoal); }
 
     .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       gap: 1.5rem;
+      justify-content: center;
+    }
+    .services-grid .service-card {
+      flex: 0 0 calc(33.333% - 1rem);
     }
 
     .service-card {
@@ -963,6 +967,15 @@
             <li>Represent your voice professionally</li>
           </ul>
         </div>
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3>Social Media Management</h3>
+          <ul style="font-size:0.85rem;color:var(--mid);line-height:1.8;padding-left:1.1rem;">
+            <li>Design branded graphics using Canva</li>
+            <li>Write captions and schedule posts</li>
+            <li>Manage feeds across platforms</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -1074,6 +1087,10 @@
             <img src="EVE'S%20GARDEN%2013.JPG" alt="Eve's Garden: Venue & Catering" />
             <div class="canva-slide-label">Eve's Garden: Venue & Catering Packages</div>
           </div>
+          <div class="canva-slide">
+            <img src="CANVA%20Sample.png" alt="Canva Sample" />
+            <div class="canva-slide-label">Event Poster</div>
+          </div>
         </div>
       </div>
 
@@ -1125,33 +1142,30 @@
       <div class="canva-carousel-wrap">
         <p class="section-label" style="margin-bottom:0.4rem;">Project Management</p>
         <p style="font-size:0.85rem;color:var(--mid);margin-bottom:1rem;">End-to-end operational checklist built to manage a full Etsy shop launch from setup to order workflow.</p>
-        <div class="canva-carousel">
-          <div class="canva-slide-wide" style="background:linear-gradient(135deg,#f0f7f3 0%,#e8f4ee 100%);padding:1.8rem;">
-            <div class="notion-badge" style="margin-bottom:0.8rem;">📊 Google Sheets · 5 phases</div>
-            <div style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--charcoal);font-weight:600;margin-bottom:1rem;">Etsy Shop Master Setup Checklist</div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-bottom:1.2rem;">
-              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
-                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">💳 Phase 1</div>
-                Payment setup via Payoneer and Wise
+        <div style="border-radius:14px;border:1px solid rgba(42,97,69,0.15);background:linear-gradient(135deg,#f0f7f3 0%,#e8f4ee 100%);box-shadow:0 4px 24px rgba(42,97,69,0.07);padding:1.1rem 1.6rem;">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <div style="display:flex;align-items:center;gap:0.8rem;flex-shrink:0;">
+              <div class="notion-badge" style="margin:0;">📊 Google Sheets · 5 phases</div>
+              <span style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--charcoal);">Etsy Shop Master Setup Checklist</span>
+            </div>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;flex:1;justify-content:center;">
+              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);white-space:nowrap;">
+                <span style="font-weight:600;color:var(--charcoal);">💳 Phase 1</span>&nbsp; Payoneer & Wise
               </div>
-              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
-                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">🛍️ Phase 2</div>
-                Etsy account creation and billing
+              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);white-space:nowrap;">
+                <span style="font-weight:600;color:var(--charcoal);">🛍️ Phase 2</span>&nbsp; Etsy account setup
               </div>
-              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
-                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">🎨 Phase 3</div>
-                Shop branding, logo and banner
+              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);white-space:nowrap;">
+                <span style="font-weight:600;color:var(--charcoal);">🎨 Phase 3</span>&nbsp; Shop branding
               </div>
-              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
-                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">📋 Phase 4</div>
-                Policies, refunds and FAQs
+              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);white-space:nowrap;">
+                <span style="font-weight:600;color:var(--charcoal);">📋 Phase 4</span>&nbsp; Policies & FAQs
               </div>
-              <div style="background:rgba(255,255,255,0.75);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.72rem;color:var(--mid);">
-                <div style="font-weight:600;color:var(--charcoal);margin-bottom:0.2rem;">📝 Phase 5</div>
-                Google Form order intake system
+              <div style="background:rgba(255,255,255,0.8);border-radius:8px;padding:0.45rem 0.75rem;font-size:0.7rem;color:var(--mid);white-space:nowrap;">
+                <span style="font-weight:600;color:var(--charcoal);">📝 Phase 5</span>&nbsp; Order intake form
               </div>
             </div>
-            <a href="https://docs.google.com/spreadsheets/d/1qS1PBpkhBANTAjybqbtqpMWRmhmdSHG7KeAKrtpxi8c/edit?usp=sharing" target="_blank" style="display:inline-block;background:var(--charcoal);color:#fff;padding:0.5rem 1.2rem;border-radius:8px;font-size:0.78rem;font-weight:500;text-decoration:none;">View Full Sheet →</a>
+            <a href="https://docs.google.com/spreadsheets/d/1qS1PBpkhBANTAjybqbtqpMWRmhmdSHG7KeAKrtpxi8c/edit?usp=sharing" target="_blank" style="display:inline-block;background:var(--charcoal);color:#fff;padding:0.5rem 1.2rem;border-radius:8px;font-size:0.78rem;font-weight:500;text-decoration:none;flex-shrink:0;">View Full Sheet →</a>
           </div>
         </div>
       </div>
@@ -1200,7 +1214,7 @@
       <!-- Sample Itinerary -->
       <div style="margin-top:3rem;margin-bottom:1rem;">
         <p class="section-label" style="margin-bottom:0.4rem;">Sample Itinerary</p>
-        <p style="font-size:0.85rem;color:var(--mid);">A real executive travel itinerary built end-to-end. Click to view the full document in Notion.</p>
+        <p style="font-size:0.85rem;color:var(--mid);">A sample executive travel itinerary built end-to-end. Click to view the full document in Notion.</p>
       </div>
       <div class="work-card" style="margin-top:0;">
         <div class="work-card-preview" style="background:linear-gradient(135deg,#edf4ee 0%,#f0f7f3 100%);min-height:220px;">
