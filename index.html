@@ -579,13 +579,26 @@
       .hero-cta { justify-content: center; }
       section { padding: 4rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .services-grid { grid-template-columns: 1fr; }
+      .services-grid .service-card { flex: 0 0 calc(50% - 0.75rem); }
       .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .work-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .canva-slide-wide { flex: 0 0 85vw; }
+      .canva-slide { flex: 0 0 200px; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .canva-carousel-wrap[style*="margin-left"] { margin-left: -1.5rem !important; margin-right: -1.5rem !important; padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
     }
 
     @media (max-width: 480px) {
       .nav-links { display: none; }
+      .hero-text h1 { font-size: 2rem; }
+      .hero-text h1 em { font-size: 2.6rem; }
+      .section-title { font-size: 1.6rem; }
+      .services-grid .service-card { flex: 0 0 100%; }
+      .work-card-preview { padding: 1.2rem; }
+      .work-card-body { padding: 1rem; }
+      .canva-slide-wide { flex: 0 0 90vw; }
     }
 
     /* PORTFOLIO IMAGE GRID */
